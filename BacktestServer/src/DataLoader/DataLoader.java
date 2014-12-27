@@ -32,24 +32,23 @@ public class DataLoader implements Iterable<String> {
     public Iterator<String> iterator() {
         return new Iterator<String>() {
 
-            private boolean isEmpty = false;
+            private String line="";
 
             @Override
             public boolean hasNext() {
-                return !isEmpty;
+                
+                return line != null;
             }
 
             @Override
             public String next() {
                 try {
-                    String line = reader.readLine();
-                    isEmpty = line == null;
-                    if (isEmpty)
-                        throw new NoSuchElementException("End of file");
+                    line = reader.readLine();
                     return line;
                 } catch (IOException ex) {
-                    return null;
+                    line = null;
                 }
+                return line;
             }
         };
     }
