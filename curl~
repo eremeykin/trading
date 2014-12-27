@@ -1,0 +1,1 @@
+curl -i -v -H Authorization: Bearer 645ed9d76182140938834f0c240a9ac6-b088512f8d506024c55dd72d24423efb -X GET 'https://stream-fxpractice.oanda.com/v1/prices?accountId=5968094&instruments=EUR_USD'
