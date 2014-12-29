@@ -14,7 +14,6 @@ import org.apache.log4j.Logger;
  */
 public class Client {
 
-    public static final Logger LOG = Logger.getLogger(Client.class);
     private final long id;
 
     public Client(long id) {
