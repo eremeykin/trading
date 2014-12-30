@@ -1,4 +1,3 @@
-2014-12-30T13:40:40,100 [INFO ] (HttpServer.java:30) - Info message
-2014-12-30T13:40:40,102 [WARN ] (HttpServer.java:31) - Warn message
-2014-12-30T13:40:40,102 [ERROR] (HttpServer.java:32) - Error message
-2014-12-30T13:40:40,102 [FATAL] (HttpServer.java:33) - Fatal message
+2014-12-30T15:15:32,040 [INFO ] (HttpServer.java:22) - Сервер запущен.
+2014-12-30T15:15:35,855 [INFO ] (HttpServer.java:26) - Клиент принят
+2014-12-30T15:15:35,865 [INFO ] (ClientProcessor.java:36) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=2655,localport=8080]

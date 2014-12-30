@@ -7,13 +7,11 @@ package DataLoader;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.LogManager;
 
 /**
  *
@@ -21,22 +19,30 @@ import java.util.logging.Logger;
  */
 public class DataLoader implements Iterable<String> {
 
-    File data = new File("/home/eremeykin/PythonCode/data.txt");
+    public static final org.apache.log4j.Logger LOG = LogManager.getLogger(DataLoader.class);
+    private final static String fileName = "/res/data.txt";
+    private final File dataFile;
     BufferedReader reader;
 
-    public DataLoader() throws Throwable {
-        reader = new BufferedReader(new FileReader(data));
+    public DataLoader() throws FileNotFoundException {
+        try {
+            this.dataFile = new File(getClass().getResource(fileName).getFile());
+            reader = new BufferedReader(new FileReader(dataFile));
+        } catch (FileNotFoundException | NullPointerException ex) {
+            LOG.error("Файл " + fileName + " не найден.\n" + ex);
+            throw ex;
+        }
     }
 
     @Override
     public Iterator<String> iterator() {
         return new Iterator<String>() {
 
-            private String line="";
+            private String line = "";
 
             @Override
             public boolean hasNext() {
-                
+
                 return line != null;
             }
 
@@ -46,6 +52,7 @@ public class DataLoader implements Iterable<String> {
                     line = reader.readLine();
                     return line;
                 } catch (IOException ex) {
+                    LOG.error("Ошибка вводв-вывода\n" + ex);
                     line = null;
                 }
                 return line;

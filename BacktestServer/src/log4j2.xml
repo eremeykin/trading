@@ -1,25 +1,36 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!-- was: <?xml version='1.0' encoding='ISO-8859-1' ?> -->
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
  
 <configuration monitorInterval="3">
     <appenders>
-        <File name="FILE_ERROR" fileName="logs/Server/error.log">
+        <!-- За перезапись отвечает параметр append-->
+        <RollingFile name="FILE_ERROR" fileName="logs/Server/error.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz" append="false"> 
             <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
             <Filters>
                 <ThresholdFilter level="error"  onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
-        </File>
-        <File name="FILE_INFO" fileName="logs/Server/info.log">
+        </RollingFile>
+        <!-- За перезапись отвечает параметр append-->
+        <RollingFile name="FILE_INFO"  fileName="logs/Server/info.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz" append="false">
             <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - %m%n"/> 
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
             <Filters>
                 <ThresholdFilter level="info"  onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
-        </File>
+        </RollingFile>
         <File name="FILE" fileName="logs/Server/error.log">
             <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - filelogger %m%n"/>
         </File>
         <Console name="STDERR" target="SYSTEM_ERR">
-            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%F:%L)  - %m%n"/>
+            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%F:%L) - %m%n"/>
             <Filters>
                 <ThresholdFilter level="error"  onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
@@ -27,7 +38,7 @@
         <Console name="STDINFO" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%F:%L) - %m%n"/>
             <Filters>
-                <ThresholdFilter level="info"  onMatch="ACCEPT" onMismatch="DENY"/>
+                <ThresholdFilter level="debug"  onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
         </Console>
         <Console name="STDOUT" target="SYSTEM_OUT">
@@ -35,7 +46,19 @@
         </Console>
     </appenders>
     <loggers>
-        <logger name="Server.HttpServer" level="info" additivity="false">
+        <logger name="Server.HttpServer" level="debug" additivity="false">
+            <appender-ref ref="FILE_ERROR"/>
+            <appender-ref ref="STDERR"/>
+            <appender-ref ref="FILE_INFO"/>
+            <appender-ref ref="STDINFO"/>
+        </logger>
+        <logger name="Client.ClientProcessor" level="debug" additivity="false">
+            <appender-ref ref="FILE_ERROR"/>
+            <appender-ref ref="STDERR"/>
+            <appender-ref ref="FILE_INFO"/>
+            <appender-ref ref="STDINFO"/>
+        </logger>
+        <logger name="DataLoader.DataLoader" level="debug" additivity="false">
             <appender-ref ref="FILE_ERROR"/>
             <appender-ref ref="STDERR"/>
             <appender-ref ref="FILE_INFO"/>
@@ -46,5 +69,4 @@
             <appender-ref ref="FILE"/>
         </root>
     </loggers>
- 
 </configuration>

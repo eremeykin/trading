@@ -6,30 +6,34 @@
 package Client;
 
 import DataLoader.DataLoader;
+import Server.HttpServer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
+import org.apache.log4j.LogManager;
 
 /**
  *
  * @author Pete
  */
-public class ClientProcessor {
+public class ClientProcessor implements Runnable{
 
+    public static final org.apache.log4j.Logger LOG = LogManager.getLogger(ClientProcessor.class);
     private Socket s;
     private InputStream is;
     private OutputStream os;
     private DataLoader dl;
     private static final String CRLF = "\r\n";
 
-    private ClientProcessor(Socket s) throws Throwable {
+    public ClientProcessor(Socket s) throws Throwable {
         this.s = s;
         this.is = s.getInputStream();
         this.os = s.getOutputStream();
         this.dl = new DataLoader();
+        LOG.info("Создан ClientProcessor для сокета "+s);
     }
 
     public void run() {
