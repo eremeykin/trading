@@ -6,7 +6,7 @@
     <appenders>
         <!-- За перезапись отвечает параметр append-->
         <RollingFile name="FILE_ERROR" fileName="logs/Server/error.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz" append="false"> 
-            <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - %m%n"/>
+            <PatternLayout pattern="%d{ISO8601} [%-5p] (%t>%F:%L) - %m%n"/>
             <Policies>
                 <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="250 MB"/>
@@ -17,7 +17,7 @@
         </RollingFile>
         <!-- За перезапись отвечает параметр append-->
         <RollingFile name="FILE_INFO"  fileName="logs/Server/info.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz" append="false">
-            <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - %m%n"/> 
+            <PatternLayout pattern="%d{ISO8601} [%-5p] (%t>%F:%L) - %m%n"/> 
             <Policies>
                 <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="250 MB"/>
@@ -27,22 +27,22 @@
             </Filters>
         </RollingFile>
         <File name="FILE" fileName="logs/Server/error.log">
-            <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - filelogger %m%n"/>
+            <PatternLayout pattern="%d{ISO8601} [%-5p] (%t>%F:%L) - filelogger %m%n"/>
         </File>
         <Console name="STDERR" target="SYSTEM_ERR">
-            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%F:%L) - %m%n"/>
+            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%t>%F:%L) - %m%n"/>
             <Filters>
                 <ThresholdFilter level="error"  onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
         </Console>
         <Console name="STDINFO" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%F:%L) - %m%n"/>
+            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%t>%F:%L) - %m%n"/>
             <Filters>
                 <ThresholdFilter level="debug"  onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
         </Console>
         <Console name="STDOUT" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%F:%L) - %m%n"/>
+            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%t>%F:%L) - %m%n"/>
         </Console>
     </appenders>
     <loggers>

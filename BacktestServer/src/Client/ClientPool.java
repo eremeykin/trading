@@ -15,16 +15,21 @@ import java.util.Map;
  */
 public class ClientPool {
 
-    Map<Long, Client> clients = new HashMap<>();
-
-    public Client generateClient() {
-        long id = clients.size() + 1;
+    private Map<Integer, Client> clients = new HashMap<>();
+    private int id=0;
+    
+    public synchronized Client generateClient() {
+        int id =this.id++;
         Client client = new Client(id);
         clients.put(client.getId(), client);
         return client;
     }
 
-    public void remove(Client client) {
+    public  synchronized Client getClientById(int id){
+        return clients.get(id);
+    }
+    
+    public synchronized void remove(Client client) {
         clients.remove(client.getId());
     }
 }

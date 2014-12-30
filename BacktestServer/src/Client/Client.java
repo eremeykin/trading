@@ -15,15 +15,30 @@ import org.apache.log4j.Logger;
  */
 public class Client {
 
-    private final long id;
+    private final int id;
+    private boolean needNext;
 
-    public Client(long id) {
+    public Client(int id) {
         this.id = id;
     }
-    public long getId(){
+
+    public Integer getId() {
         return this.id;
     }
-    public  String toString(){
-        return "Client #"+Long.toString(id);
+
+    public String toString() {
+        return "Client #" + Long.toString(id);
+    }
+
+    public synchronized void setNeedNext() {
+        this.needNext = true;
+    }
+
+    public synchronized void clearNeedNext() {
+        this.needNext = false;
+    }
+    
+    public synchronized boolean needNext() {
+        return this.needNext;
     }
 }

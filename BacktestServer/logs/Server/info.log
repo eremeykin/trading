@@ -1,5 +1,259 @@
-2014-12-30T17:29:15,233 [INFO ] (HttpServer.java:32) - Сервер запущен.
-2014-12-30T17:29:19,161 [INFO ] (HttpServer.java:36) - Клиент принят
-2014-12-30T17:29:19,172 [INFO ] (DataLoader.java:38) - Файл D:\Trading\trading\BacktestServer\build\classes\res\smalldata.txt загружен.
-2014-12-30T17:29:19,172 [INFO ] (ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=4925,localport=8080]
-2014-12-30T17:29:19,200 [INFO ] (ClientProcessor.java:63) - Поток Thread[Thread-1,5,main] завершил обработу клиента
+2014-12-31T00:48:54,140 [INFO ] (main>HttpServer.java:32) - Сервер запущен.
+2014-12-31T00:49:10,021 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:10,027 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:10,029 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54671,localport=8080]
+2014-12-31T00:49:12,624 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:12,625 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:12,626 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54672,localport=8080]
+2014-12-31T00:49:12,637 [INFO ] (Thread-3>ClientProcessor.java:64) - Поток Thread-3 завершил обработу клиента
+2014-12-31T00:49:17,775 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:17,776 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:17,777 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54673,localport=8080]
+2014-12-31T00:49:17,796 [INFO ] (Thread-4>ClientProcessor.java:64) - Поток Thread-4 завершил обработу клиента
+2014-12-31T00:49:19,448 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:19,449 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:19,452 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54674,localport=8080]
+2014-12-31T00:49:19,457 [INFO ] (Thread-5>ClientProcessor.java:64) - Поток Thread-5 завершил обработу клиента
+2014-12-31T00:49:20,478 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:20,480 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:20,481 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54675,localport=8080]
+2014-12-31T00:49:20,486 [INFO ] (Thread-6>ClientProcessor.java:64) - Поток Thread-6 завершил обработу клиента
+2014-12-31T00:49:39,990 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:39,991 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:39,993 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54676,localport=8080]
+2014-12-31T00:49:40,001 [INFO ] (Thread-7>ClientProcessor.java:64) - Поток Thread-7 завершил обработу клиента
+2014-12-31T00:49:42,126 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:42,128 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:42,129 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54677,localport=8080]
+2014-12-31T00:49:42,139 [INFO ] (Thread-8>ClientProcessor.java:64) - Поток Thread-8 завершил обработу клиента
+2014-12-31T00:49:43,455 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:43,456 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:43,458 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54678,localport=8080]
+2014-12-31T00:49:43,467 [INFO ] (Thread-9>ClientProcessor.java:64) - Поток Thread-9 завершил обработу клиента
+2014-12-31T00:49:45,174 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:45,175 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:45,176 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54679,localport=8080]
+2014-12-31T00:49:45,179 [INFO ] (Thread-10>ClientProcessor.java:64) - Поток Thread-10 завершил обработу клиента
+2014-12-31T00:49:46,030 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:46,032 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:46,033 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54680,localport=8080]
+2014-12-31T00:49:46,038 [INFO ] (Thread-11>ClientProcessor.java:64) - Поток Thread-11 завершил обработу клиента
+2014-12-31T00:49:46,701 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:46,704 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:46,705 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54681,localport=8080]
+2014-12-31T00:49:46,715 [INFO ] (Thread-12>ClientProcessor.java:64) - Поток Thread-12 завершил обработу клиента
+2014-12-31T00:49:47,334 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:47,335 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:47,336 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54682,localport=8080]
+2014-12-31T00:49:47,345 [INFO ] (Thread-13>ClientProcessor.java:64) - Поток Thread-13 завершил обработу клиента
+2014-12-31T00:49:47,918 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:47,920 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:47,921 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54683,localport=8080]
+2014-12-31T00:49:47,930 [INFO ] (Thread-14>ClientProcessor.java:64) - Поток Thread-14 завершил обработу клиента
+2014-12-31T00:49:48,558 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:48,560 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:48,560 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54684,localport=8080]
+2014-12-31T00:49:48,563 [INFO ] (Thread-15>ClientProcessor.java:64) - Поток Thread-15 завершил обработу клиента
+2014-12-31T00:49:49,142 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:49,144 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:49,144 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54685,localport=8080]
+2014-12-31T00:49:49,160 [INFO ] (Thread-16>ClientProcessor.java:64) - Поток Thread-16 завершил обработу клиента
+2014-12-31T00:49:49,726 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:49,728 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:49,729 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54686,localport=8080]
+2014-12-31T00:49:49,736 [INFO ] (Thread-17>ClientProcessor.java:64) - Поток Thread-17 завершил обработу клиента
+2014-12-31T00:49:50,360 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:50,361 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:50,362 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54687,localport=8080]
+2014-12-31T00:49:50,372 [INFO ] (Thread-18>ClientProcessor.java:64) - Поток Thread-18 завершил обработу клиента
+2014-12-31T00:49:51,534 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:51,535 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:51,536 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54688,localport=8080]
+2014-12-31T00:49:51,542 [INFO ] (Thread-19>ClientProcessor.java:64) - Поток Thread-19 завершил обработу клиента
+2014-12-31T00:49:52,190 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:52,192 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:52,193 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54689,localport=8080]
+2014-12-31T00:49:52,204 [INFO ] (Thread-20>ClientProcessor.java:64) - Поток Thread-20 завершил обработу клиента
+2014-12-31T00:49:52,846 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:52,848 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:52,849 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54690,localport=8080]
+2014-12-31T00:49:52,858 [INFO ] (Thread-21>ClientProcessor.java:64) - Поток Thread-21 завершил обработу клиента
+2014-12-31T00:49:53,462 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:53,463 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:53,464 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54691,localport=8080]
+2014-12-31T00:49:53,468 [INFO ] (Thread-22>ClientProcessor.java:64) - Поток Thread-22 завершил обработу клиента
+2014-12-31T00:49:54,215 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:54,217 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:54,218 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54692,localport=8080]
+2014-12-31T00:49:54,220 [INFO ] (Thread-23>ClientProcessor.java:64) - Поток Thread-23 завершил обработу клиента
+2014-12-31T00:49:54,774 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:54,775 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:54,776 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54693,localport=8080]
+2014-12-31T00:49:54,783 [INFO ] (Thread-24>ClientProcessor.java:64) - Поток Thread-24 завершил обработу клиента
+2014-12-31T00:49:55,495 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:55,497 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:55,497 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54694,localport=8080]
+2014-12-31T00:49:55,502 [INFO ] (Thread-25>ClientProcessor.java:64) - Поток Thread-25 завершил обработу клиента
+2014-12-31T00:49:59,317 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:49:59,319 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:49:59,320 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54695,localport=8080]
+2014-12-31T00:49:59,325 [INFO ] (Thread-26>ClientProcessor.java:64) - Поток Thread-26 завершил обработу клиента
+2014-12-31T00:50:31,565 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:50:31,566 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:50:31,570 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54696,localport=8080]
+2014-12-31T00:50:55,033 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:50:55,034 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:50:55,035 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54697,localport=8080]
+2014-12-31T00:50:55,039 [INFO ] (Thread-29>ClientProcessor.java:64) - Поток Thread-29 завершил обработу клиента
+2014-12-31T00:51:39,801 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:51:39,802 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:51:39,803 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54698,localport=8080]
+2014-12-31T00:51:39,813 [INFO ] (Thread-30>ClientProcessor.java:64) - Поток Thread-30 завершил обработу клиента
+2014-12-31T00:51:41,793 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:51:41,794 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:51:41,794 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54699,localport=8080]
+2014-12-31T00:51:41,796 [INFO ] (Thread-31>ClientProcessor.java:64) - Поток Thread-31 завершил обработу клиента
+2014-12-31T00:51:42,941 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:51:42,943 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:51:42,945 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54700,localport=8080]
+2014-12-31T00:51:42,948 [INFO ] (Thread-32>ClientProcessor.java:64) - Поток Thread-32 завершил обработу клиента
+2014-12-31T00:51:49,132 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:51:49,133 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:51:49,133 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54701,localport=8080]
+2014-12-31T00:51:49,145 [INFO ] (Thread-33>ClientProcessor.java:64) - Поток Thread-33 завершил обработу клиента
+2014-12-31T00:51:50,810 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:51:50,811 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:51:50,812 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54702,localport=8080]
+2014-12-31T00:51:50,824 [INFO ] (Thread-34>ClientProcessor.java:64) - Поток Thread-34 завершил обработу клиента
+2014-12-31T00:51:52,559 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:51:52,560 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:51:52,561 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54703,localport=8080]
+2014-12-31T00:51:52,564 [INFO ] (Thread-35>ClientProcessor.java:64) - Поток Thread-35 завершил обработу клиента
+2014-12-31T00:51:53,810 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:51:53,811 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:51:53,812 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54704,localport=8080]
+2014-12-31T00:51:53,824 [INFO ] (Thread-36>ClientProcessor.java:64) - Поток Thread-36 завершил обработу клиента
+2014-12-31T00:51:54,666 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:51:54,667 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:51:54,667 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54705,localport=8080]
+2014-12-31T00:51:54,681 [INFO ] (Thread-37>ClientProcessor.java:64) - Поток Thread-37 завершил обработу клиента
+2014-12-31T00:52:00,049 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:00,050 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:00,050 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54706,localport=8080]
+2014-12-31T00:52:00,065 [INFO ] (Thread-38>ClientProcessor.java:64) - Поток Thread-38 завершил обработу клиента
+2014-12-31T00:52:01,586 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:01,589 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:01,590 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54707,localport=8080]
+2014-12-31T00:52:01,598 [INFO ] (Thread-39>ClientProcessor.java:64) - Поток Thread-39 завершил обработу клиента
+2014-12-31T00:52:02,282 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:02,283 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:02,286 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54708,localport=8080]
+2014-12-31T00:52:02,304 [INFO ] (Thread-40>ClientProcessor.java:64) - Поток Thread-40 завершил обработу клиента
+2014-12-31T00:52:03,064 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:03,065 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:03,066 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54709,localport=8080]
+2014-12-31T00:52:03,072 [INFO ] (Thread-41>ClientProcessor.java:64) - Поток Thread-41 завершил обработу клиента
+2014-12-31T00:52:06,849 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:06,850 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:06,850 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54710,localport=8080]
+2014-12-31T00:52:06,862 [INFO ] (Thread-42>ClientProcessor.java:64) - Поток Thread-42 завершил обработу клиента
+2014-12-31T00:52:07,625 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:07,627 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:07,627 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54711,localport=8080]
+2014-12-31T00:52:07,644 [INFO ] (Thread-43>ClientProcessor.java:64) - Поток Thread-43 завершил обработу клиента
+2014-12-31T00:52:08,466 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:08,467 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:08,468 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54712,localport=8080]
+2014-12-31T00:52:08,472 [INFO ] (Thread-44>ClientProcessor.java:64) - Поток Thread-44 завершил обработу клиента
+2014-12-31T00:52:09,098 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:09,099 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:09,100 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54713,localport=8080]
+2014-12-31T00:52:09,105 [INFO ] (Thread-45>ClientProcessor.java:64) - Поток Thread-45 завершил обработу клиента
+2014-12-31T00:52:10,236 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:10,237 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:10,238 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54714,localport=8080]
+2014-12-31T00:52:10,249 [INFO ] (Thread-46>ClientProcessor.java:64) - Поток Thread-46 завершил обработу клиента
+2014-12-31T00:52:10,917 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:10,918 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:10,919 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54715,localport=8080]
+2014-12-31T00:52:10,922 [INFO ] (Thread-47>ClientProcessor.java:64) - Поток Thread-47 завершил обработу клиента
+2014-12-31T00:52:15,155 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:15,156 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:15,156 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54716,localport=8080]
+2014-12-31T00:52:15,161 [INFO ] (Thread-48>ClientProcessor.java:64) - Поток Thread-48 завершил обработу клиента
+2014-12-31T00:52:16,092 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:16,093 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:16,093 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54717,localport=8080]
+2014-12-31T00:52:16,100 [INFO ] (Thread-49>ClientProcessor.java:64) - Поток Thread-49 завершил обработу клиента
+2014-12-31T00:52:16,969 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:16,970 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:16,971 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54718,localport=8080]
+2014-12-31T00:52:16,996 [INFO ] (Thread-50>ClientProcessor.java:64) - Поток Thread-50 завершил обработу клиента
+2014-12-31T00:52:39,664 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:39,665 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:39,665 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54719,localport=8080]
+2014-12-31T00:52:39,674 [INFO ] (Thread-51>ClientProcessor.java:64) - Поток Thread-51 завершил обработу клиента
+2014-12-31T00:52:40,075 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:40,076 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:40,077 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54720,localport=8080]
+2014-12-31T00:52:40,085 [INFO ] (Thread-52>ClientProcessor.java:64) - Поток Thread-52 завершил обработу клиента
+2014-12-31T00:52:40,446 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:40,447 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:40,447 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54721,localport=8080]
+2014-12-31T00:52:40,450 [INFO ] (Thread-53>ClientProcessor.java:64) - Поток Thread-53 завершил обработу клиента
+2014-12-31T00:52:40,756 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:40,757 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:40,758 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54722,localport=8080]
+2014-12-31T00:52:40,765 [INFO ] (Thread-54>ClientProcessor.java:64) - Поток Thread-54 завершил обработу клиента
+2014-12-31T00:52:41,117 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:41,118 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:41,118 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54723,localport=8080]
+2014-12-31T00:52:41,128 [INFO ] (Thread-55>ClientProcessor.java:64) - Поток Thread-55 завершил обработу клиента
+2014-12-31T00:52:41,761 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:41,762 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:41,762 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54724,localport=8080]
+2014-12-31T00:52:41,767 [INFO ] (Thread-56>ClientProcessor.java:64) - Поток Thread-56 завершил обработу клиента
+2014-12-31T00:52:42,364 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:42,365 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:42,366 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54725,localport=8080]
+2014-12-31T00:52:42,371 [INFO ] (Thread-57>ClientProcessor.java:64) - Поток Thread-57 завершил обработу клиента
+2014-12-31T00:52:42,812 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:42,813 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:42,814 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54726,localport=8080]
+2014-12-31T00:52:42,820 [INFO ] (Thread-58>ClientProcessor.java:64) - Поток Thread-58 завершил обработу клиента
+2014-12-31T00:52:43,240 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:43,241 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:43,241 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54727,localport=8080]
+2014-12-31T00:52:43,247 [INFO ] (Thread-59>ClientProcessor.java:64) - Поток Thread-59 завершил обработу клиента
+2014-12-31T00:52:43,629 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:43,630 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:43,631 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54728,localport=8080]
+2014-12-31T00:52:43,636 [INFO ] (Thread-60>ClientProcessor.java:64) - Поток Thread-60 завершил обработу клиента
+2014-12-31T00:52:43,982 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:43,983 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:43,984 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54729,localport=8080]
+2014-12-31T00:52:43,988 [INFO ] (Thread-61>ClientProcessor.java:64) - Поток Thread-61 завершил обработу клиента
+2014-12-31T00:52:44,418 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:44,422 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:44,423 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54730,localport=8080]
+2014-12-31T00:52:44,431 [INFO ] (Thread-62>ClientProcessor.java:64) - Поток Thread-62 завершил обработу клиента
+2014-12-31T00:52:45,680 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:45,681 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:45,682 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54731,localport=8080]
+2014-12-31T00:52:45,690 [INFO ] (Thread-63>ClientProcessor.java:64) - Поток Thread-63 завершил обработу клиента
+2014-12-31T00:52:47,499 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:47,500 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:47,501 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54732,localport=8080]
+2014-12-31T00:52:47,504 [INFO ] (Thread-64>ClientProcessor.java:64) - Поток Thread-64 завершил обработу клиента
+2014-12-31T00:52:48,657 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:48,658 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:48,663 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54733,localport=8080]
+2014-12-31T00:52:48,665 [INFO ] (Thread-65>ClientProcessor.java:64) - Поток Thread-65 завершил обработу клиента
+2014-12-31T00:52:49,978 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:49,979 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:49,981 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54734,localport=8080]
+2014-12-31T00:52:49,986 [INFO ] (Thread-66>ClientProcessor.java:64) - Поток Thread-66 завершил обработу клиента
+2014-12-31T00:52:51,050 [INFO ] (main>HttpServer.java:36) - Клиент принят
+2014-12-31T00:52:51,051 [INFO ] (main>DataLoader.java:38) - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен.
+2014-12-31T00:52:51,053 [INFO ] (main>ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=54735,localport=8080]
+2014-12-31T00:52:51,065 [INFO ] (Thread-67>ClientProcessor.java:64) - Поток Thread-67 завершил обработу клиента
