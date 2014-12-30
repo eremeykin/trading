@@ -22,15 +22,15 @@ import org.apache.log4j.Logger;
  */
 public class HttpServer {
 
-    public static final org.apache.log4j.Logger LOG =LogManager.getLogger(HttpServer.class);
+    public static final org.apache.log4j.Logger LOG = LogManager.getLogger(HttpServer.class);
 
     public static void main(String[] args) throws Throwable {
         ServerSocket ss = new ServerSocket(8080);
-        LOG.error("Это ошибка какая-то");
-        LOG.info("Это информационное сообщение!1");
-        LOG.info("Это информационное сообщение!2");
-        LOG.info("Это информационное сообщение!3");
-        System.err.println("Waiting for client");
+        LOG.debug("Debug message");
+        LOG.info("Info message");
+        LOG.warn("Warn message");
+        LOG.error("Error message");
+        LOG.fatal("Fatal message");
         while (true) {
             Socket s = ss.accept();
             s.setKeepAlive(true);

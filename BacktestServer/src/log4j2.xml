@@ -1,20 +1,50 @@
 <?xml version='1.0' encoding='ISO-8859-1' ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
-
+ 
 <configuration monitorInterval="3">
-<appenders>
-<File name="FILE" fileName="logs/Server/error.log">
-<PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - %m%n"/>
-</File>
-<Console name="STDOUT" target="SYSTEM_OUT">
-<PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%F:%L) - %m%n"/>
-</Console>
-</appenders>
-<loggers>
-<root level="warn">
-<appender-ref ref="STDOUT"/>
-<appender-ref ref="FILE"/>
-</root>
-</loggers>
+    <appenders>
+        <File name="FILE_ERROR" fileName="logs/Server/error.log">
+            <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - %m%n"/>
+            <Filters>
+                <ThresholdFilter level="error"  onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </File>
+        <File name="FILE_INFO" fileName="logs/Server/info.log">
+            <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - %m%n"/> 
+            <Filters>
+                <ThresholdFilter level="info"  onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </File>
+        <File name="FILE" fileName="logs/Server/error.log">
+            <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - filelogger %m%n"/>
+        </File>
+        <Console name="STDERR" target="SYSTEM_ERR">
+            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%F:%L)  - %m%n"/>
+            <Filters>
+                <ThresholdFilter level="error"  onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </Console>
+        <Console name="STDINFO" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%F:%L) - %m%n"/>
+            <Filters>
+                <ThresholdFilter level="info"  onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </Console>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ABSOLUTE} [%-5p] (%F:%L) - %m%n"/>
+        </Console>
+    </appenders>
+    <loggers>
+        <logger name="Server.HttpServer" level="info" additivity="false">
+            <appender-ref ref="FILE_ERROR"/>
+            <appender-ref ref="STDERR"/>
+            <appender-ref ref="FILE_INFO"/>
+            <appender-ref ref="STDINFO"/>
+        </logger>
+        <root level="DEBUG">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="FILE"/>
+        </root>
+    </loggers>
  
 </configuration>

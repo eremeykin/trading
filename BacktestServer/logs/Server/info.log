@@ -1,2 +1,4 @@
+2014-12-30T13:40:40,100 [INFO ] (HttpServer.java:30) - Info message
+2014-12-30T13:40:40,102 [WARN ] (HttpServer.java:31) - Warn message
 2014-12-30T13:40:40,102 [ERROR] (HttpServer.java:32) - Error message
 2014-12-30T13:40:40,102 [FATAL] (HttpServer.java:33) - Fatal message
