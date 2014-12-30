@@ -1,3 +1,5 @@
-2014-12-30T15:15:32,040 [INFO ] (HttpServer.java:22) - Сервер запущен.
-2014-12-30T15:15:35,855 [INFO ] (HttpServer.java:26) - Клиент принят
-2014-12-30T15:15:35,865 [INFO ] (ClientProcessor.java:36) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=2655,localport=8080]
+2014-12-30T17:29:15,233 [INFO ] (HttpServer.java:32) - Сервер запущен.
+2014-12-30T17:29:19,161 [INFO ] (HttpServer.java:36) - Клиент принят
+2014-12-30T17:29:19,172 [INFO ] (DataLoader.java:38) - Файл D:\Trading\trading\BacktestServer\build\classes\res\smalldata.txt загружен.
+2014-12-30T17:29:19,172 [INFO ] (ClientProcessor.java:41) - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=4925,localport=8080]
+2014-12-30T17:29:19,200 [INFO ] (ClientProcessor.java:63) - Поток Thread[Thread-1,5,main] завершил обработу клиента

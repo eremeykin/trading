@@ -6,6 +6,7 @@
 package Client;
 //import org.apache.logging.log4j.Logger;
 
+import java.net.Socket;
 import org.apache.log4j.Logger;
 
 /**
@@ -18,5 +19,11 @@ public class Client {
 
     public Client(long id) {
         this.id = id;
+    }
+    public long getId(){
+        return this.id;
+    }
+    public  String toString(){
+        return "Client #"+Long.toString(id);
     }
 }

@@ -11,6 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.log4j.LogManager;
 
 /**
@@ -20,17 +22,25 @@ import org.apache.log4j.LogManager;
 public class DataLoader implements Iterable<String> {
 
     public static final org.apache.log4j.Logger LOG = LogManager.getLogger(DataLoader.class);
-    private final static String fileName = "/res/data.txt";
+    private final static String fileName = "/res/smalldata.txt";
     private final File dataFile;
     BufferedReader reader;
 
-    public DataLoader() throws FileNotFoundException {
+    public DataLoader() {
+        File df = null;
         try {
-            this.dataFile = new File(getClass().getResource(fileName).getFile());
-            reader = new BufferedReader(new FileReader(dataFile));
-        } catch (FileNotFoundException | NullPointerException ex) {
+            df = new File(getClass().getResource(fileName).getFile());
+        } catch (NullPointerException ex) {
             LOG.error("Файл " + fileName + " не найден.\n" + ex);
-            throw ex;
+            System.exit(-1);
+        } finally {
+            dataFile = df;
+            LOG.info("Файл "+dataFile+" загружен.");
+            try {
+                reader = new BufferedReader(new FileReader(dataFile));
+            } catch (FileNotFoundException ex) {
+                LOG.error("Файл " + fileName + " не найден.\n" + ex);
+            }
         }
     }
 
@@ -38,24 +48,16 @@ public class DataLoader implements Iterable<String> {
     public Iterator<String> iterator() {
         return new Iterator<String>() {
 
-            private String line = "";
+            private Scanner scanner = new Scanner(reader);
 
             @Override
             public boolean hasNext() {
-
-                return line != null;
+                return scanner.hasNextLine();
             }
 
             @Override
             public String next() {
-                try {
-                    line = reader.readLine();
-                    return line;
-                } catch (IOException ex) {
-                    LOG.error("Ошибка вводв-вывода\n" + ex);
-                    line = null;
-                }
-                return line;
+                return scanner.nextLine();
             }
         };
     }
