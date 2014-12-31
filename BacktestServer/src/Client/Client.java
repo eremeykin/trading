@@ -6,7 +6,9 @@
 package Client;
 //import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.net.Socket;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 /**
@@ -15,10 +17,13 @@ import org.apache.log4j.Logger;
  */
 public class Client {
 
+    public static final org.apache.log4j.Logger LOG = LogManager.getLogger(ClientProcessor.class);
     private final int id;
     private boolean needNext;
+    public Connection conn;
 
-    public Client(int id) {
+    public Client(int id, Socket s) throws IOException {
+        this.conn = new Connection(s);
         this.id = id;
     }
 
@@ -37,7 +42,7 @@ public class Client {
     public synchronized void clearNeedNext() {
         this.needNext = false;
     }
-    
+
     public synchronized boolean needNext() {
         return this.needNext;
     }

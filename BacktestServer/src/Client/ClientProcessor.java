@@ -13,7 +13,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,21 +26,11 @@ public class ClientProcessor extends Thread {
 
     public static final org.apache.log4j.Logger LOG = LogManager.getLogger(ClientProcessor.class);
     private Socket s;
-    private InputStream is;
-    private OutputStream os;
-    private DataLoader dl;
 
     public ClientProcessor(Socket s) {
-
+        this.setName("ClientProcessor");
         this.s = s;
-        try {
-            this.is = s.getInputStream();
-            this.os = s.getOutputStream();
-            this.dl = new DataLoader();
-            LOG.info("Создан ClientProcessor для сокета " + s);
-        } catch (IOException ex) {
-            LOG.error("Ошибка при создании ClientProcessor");
-        }
+        LOG.info("Создан ClientProcessor для сокета " + s);
     }
 
     @Override
@@ -65,7 +54,7 @@ public class ClientProcessor extends Thread {
     }
 
     private String readInputHeaders() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
         String inputHeaders = "";
         while (true) {
             try {
@@ -85,9 +74,17 @@ public class ClientProcessor extends Thread {
     private void processHeaders(String headers) {
         if (headers.contains("need_next_tick")) {
             int id = parseId(headers);
-            HttpServer.getClientPool().getClientById(id).setNeedNext();
+            try {
+                HttpServer.getClientPool().getClientById(id).setNeedNext();
+            } catch (NullPointerException ex) {
+                LOG.error("Попытка запросить данные для несуществующего клиента.");
+            }
         } else {
-            new TickFeeder().run();
+            try {
+                new TickFeeder(s).run();
+            } catch (IOException ex) {
+                LOG.error("Не удалось создать клиента." + ex);
+            }
         }
     }
 
@@ -95,7 +92,6 @@ public class ClientProcessor extends Thread {
         StringTokenizer tokenizer = new StringTokenizer(headers, "\r\n");
         while (tokenizer.hasMoreTokens()) {
             String token = tokenizer.nextToken();
-            System.out.println(token+"!!!");
             if (token.startsWith("Client-Identificator:")) {
                 return new Integer(token.substring("Client-Identificator: ".length()));
             }
@@ -103,17 +99,27 @@ public class ClientProcessor extends Thread {
         throw new Error();
     }
 
-    private class TickFeeder extends Thread {
+    private class TickFeeder implements Runnable {
 
         private static final String CRLF = "\r\n";
         private final Client client;
+        private final DataLoader dl;
+        private boolean stop = false;
 
-        public TickFeeder() {
-            this.client = HttpServer.getClientPool().generateClient();
+        public TickFeeder(Socket s) throws IOException {
+            this.client = HttpServer.getClientPool().generateClient(s);
+            this.dl = new DataLoader();
+        }
+
+        public synchronized void setStop() {
+            stop = true;
         }
 
         @Override
         public void run() {
+            LOG.info("Запущен TickFeeder для клиента " + this.client);
+            OutputStream os = this.client.conn.getOutputStream();
+            InputStream is = this.client.conn.getInputStream();
             try {
                 String response = "HTTP/1.1 200 OK" + CRLF
                         + "Server: TestServer/2014" + CRLF
@@ -125,8 +131,14 @@ public class ClientProcessor extends Thread {
                 String result = response;
                 os.write(result.getBytes());
                 os.flush();
+                new ConnectionStatusScanner(is, this).start();
+                outer:
                 for (String line : dl) {
                     while (!client.needNext()) {
+                        if (stop) {
+                            LOG.info("TickFeeder для клиента." + client + "должен быть завершен. Соединение потеряно.");
+                            break outer;
+                        }
                     }
                     client.clearNeedNext();
                     String count = Integer.toHexString(line.length() + 1) + "\r\n\n";
@@ -138,13 +150,41 @@ public class ClientProcessor extends Thread {
                 }
                 os.write("0\r\n\r\n".getBytes());
                 os.flush();
+                LOG.info("Завершен TickFeeder для клиента." + client);
             } catch (IOException ex) {
                 LOG.error("Ошибка при записи запроса. " + ex);
+                LOG.info("Завершен TickFeeder для клиента " + client);
 //            } catch (InterruptedException ex) {
 //                LOG.error("Поток прерван. " + ex);
             }
+
         }
 
+        private class ConnectionStatusScanner extends Thread {
+
+            private final InputStream is;
+            private final TickFeeder feeder;
+
+            ConnectionStatusScanner(InputStream is, TickFeeder feeder) {
+                this.setName("Status scanner for"+feeder.client);
+                this.is = is;
+                this.feeder = feeder;
+            }
+
+            @Override
+            public void run() {
+                boolean go = true;
+                while (go) {
+                    try {
+                        go = is.read() != -1;
+                    } catch (IOException ex) {
+                        LOG.error("Ошибка при сканировании статуса соединения во внутреннем потоке.");
+                    }
+                }
+                feeder.setStop();
+
+            }
+        }
     }
 
 }
