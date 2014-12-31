@@ -18,7 +18,7 @@ class ServerConnection(threading.Thread):
     instrument = "EUR_USD"
     displayHeartbeat = False
     tick_event = threading.Event()
-    time_out = 2000
+    time_out = 20006
 
     def __init__(self, test_mode):
         self.resp = self.connect_to_stream()
@@ -83,5 +83,5 @@ class ServerConnection(threading.Thread):
 
 
 if __name__ == "__main__":
-    sc = ServerConnection(test_mode = True)
+    sc = ServerConnection(test_mode = False)
     sc.start()

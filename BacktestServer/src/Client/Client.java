@@ -7,9 +7,7 @@ package Client;
 //import org.apache.logging.log4j.Logger;
 
 import DataLoader.DataLoader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.util.Iterator;
 import org.apache.log4j.LogManager;
@@ -35,6 +33,7 @@ public class Client {
     private boolean needNext;
     public Connection conn;
     private final Iterator<String> iterator;
+    private DataItem dataItem;
 
     public Client(int id, Socket s) throws IOException {
         this.conn = new Connection(s);
@@ -74,6 +73,9 @@ public class Client {
             line += "\r\n";
             os.write((count + line).getBytes());
             os.flush();
+            //LOG.info(line);
+            dataItem = new DataItem(line);
+            LOG.info(dataItem);
             return true;
         } else {
             os.write("0\r\n\r\n".getBytes());
