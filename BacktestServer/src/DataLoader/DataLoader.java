@@ -35,7 +35,7 @@ public class DataLoader implements Iterable<String> {
             System.exit(-1);
         } finally {
             dataFile = df;
-            LOG.info("Файл "+dataFile+" загружен.");
+            LOG.info("Файл " + dataFile + " загружен.");
             try {
                 reader = new BufferedReader(new FileReader(dataFile));
             } catch (FileNotFoundException ex) {

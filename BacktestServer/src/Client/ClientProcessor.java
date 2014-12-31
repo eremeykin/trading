@@ -14,8 +14,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.log4j.LogManager;
 
 /**
@@ -38,9 +36,6 @@ public class ClientProcessor extends Thread {
         try {
             String headers = readInputHeaders();
             processHeaders(headers);
-//            writeResponse();
-//        } catch (InterruptedException e) {
-//            LOG.error("Поток " + Thread.currentThread().getName() + " прерван." + e);
         } catch (IOException e) {
             LOG.error("Ошибка записи при отправке ответа. " + e);
         } finally {
@@ -60,7 +55,6 @@ public class ClientProcessor extends Thread {
             try {
                 String str = br.readLine();
                 inputHeaders += str + "\n";
-//                System.out.println("<" + str);
                 if (str == null || str.trim().length() == 0) {
                     break;
                 }
@@ -101,14 +95,11 @@ public class ClientProcessor extends Thread {
 
     private class TickFeeder implements Runnable {
 
-        private static final String CRLF = "\r\n";
         private final Client client;
-        private final DataLoader dl;
         private boolean stop = false;
 
         public TickFeeder(Socket s) throws IOException {
             this.client = HttpServer.getClientPool().generateClient(s);
-            this.dl = new DataLoader();
         }
 
         public synchronized void setStop() {
@@ -118,44 +109,21 @@ public class ClientProcessor extends Thread {
         @Override
         public void run() {
             LOG.info("Запущен TickFeeder для клиента " + this.client);
-            OutputStream os = this.client.conn.getOutputStream();
-            InputStream is = this.client.conn.getInputStream();
             try {
-                String response = "HTTP/1.1 200 OK" + CRLF
-                        + "Server: TestServer/2014" + CRLF
-                        + "Content-Type: application/json" + CRLF
-                        + "Transfer-Encoding: chunked" + CRLF
-                        + "Connection: close" + CRLF
-                        + "Clien-Identificator: " + client.getId() + CRLF
-                        + "Access-Control-Allow-Origin: *\n" + CRLF;
-                String result = response;
-                os.write(result.getBytes());
-                os.flush();
-                new ConnectionStatusScanner(is, this).start();
+                new ConnectionStatusScanner(client.conn.getInputStream(), this).start();
                 outer:
-                for (String line : dl) {
+                do {
                     while (!client.needNext()) {
                         if (stop) {
-                            LOG.info("TickFeeder для клиента." + client + "должен быть завершен. Соединение потеряно.");
+                            LOG.info("TickFeeder для клиента. " + client + "должен быть завершен. Соединение потеряно.");
                             break outer;
                         }
                     }
-                    client.clearNeedNext();
-                    String count = Integer.toHexString(line.length() + 1) + "\r\n\n";
-                    line += "\r\n";
-                    os.write((count + line).getBytes());
-                    os.flush();
-//            System.out.print(">" + line);
-//                    Thread.sleep(2000);
-                }
-                os.write("0\r\n\r\n".getBytes());
-                os.flush();
-                LOG.info("Завершен TickFeeder для клиента." + client);
+                } while (client.sendNext());
+                LOG.info("Завершен TickFeeder для клиента. " + client);
             } catch (IOException ex) {
                 LOG.error("Ошибка при записи запроса. " + ex);
-                LOG.info("Завершен TickFeeder для клиента " + client);
-//            } catch (InterruptedException ex) {
-//                LOG.error("Поток прерван. " + ex);
+                LOG.info("Завершен TickFeeder для клиента. " + client);
             }
 
         }
@@ -166,7 +134,7 @@ public class ClientProcessor extends Thread {
             private final TickFeeder feeder;
 
             ConnectionStatusScanner(InputStream is, TickFeeder feeder) {
-                this.setName("Status scanner for"+feeder.client);
+                this.setName("Status scanner for" + feeder.client);
                 this.is = is;
                 this.feeder = feeder;
             }
@@ -182,7 +150,6 @@ public class ClientProcessor extends Thread {
                     }
                 }
                 feeder.setStop();
-
             }
         }
     }
