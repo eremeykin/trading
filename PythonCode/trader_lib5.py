@@ -18,7 +18,7 @@ class ServerConnection(threading.Thread):
     instrument = "EUR_USD"
     displayHeartbeat = False
     tick_event = threading.Event()
-    time_out = 20006
+    time_out = 2000
 
     def __init__(self, test_mode):
         self.resp = self.connect_to_stream()
@@ -56,7 +56,33 @@ class ServerConnection(threading.Thread):
             print "Caught exception when connecting to stream. Exception message:\n" + str(e) 
             s.close()
 
+    def order(self,instr, units, side, take_profit, stop_loss):
+        try:
+            s = requests.Session()
+            s.keep_alive = False
+            headers = {'Authorization' : 'Bearer ' + self.token,
+                    'X-Accept-Datetime-Format' : 'unix',
+                    'Connection':'close',
+                    "Content-Type" : "application/x-www-form-urlencoded"
+                    }
+
+            params = urllib.urlencode({
+                                    "instrument" : self.instrument,           
+                                    "units" : units,                
+                                    "type" : 'market',                # now!
+                                    "side" : side,                     # "buy" price-up ("sell"  price-down)
+                                    "takeProfit" : take_profit,    
+                                    "stopLoss" : stop_loss
+                                    })
+
+            req =requests.post(self.order_url, data=params, headers=headers)
+            for line in req.iter_lines(1):
+                print "order responce: ", line
+        except Exception as e:
+             print "Caught exception when connecting to orders\n" + str(e) 
+
     def start(self):
+        self.order(instr = self.instrument,units=10,side='buy',take_profit='10',stop_loss='20')
         response = self.connect_to_stream()
         if not response:
             return
@@ -83,5 +109,6 @@ class ServerConnection(threading.Thread):
 
 
 if __name__ == "__main__":
-    sc = ServerConnection(test_mode = False)
-    sc.start()
+    sc = ServerConnection(test_mode = True)
+    sc.order(instr = sc.instrument,units=10,side='buy',take_profit='10',stop_loss='20')
+    # sc.start()

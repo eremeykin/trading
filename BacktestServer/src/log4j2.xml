@@ -65,6 +65,12 @@
             <appender-ref ref="FILE_INFO"/>
             <appender-ref ref="STDINFO"/>
         </logger>
+        <logger name="Client.HTTPRequest" level="debug" additivity="false">
+            <appender-ref ref="FILE_ERROR"/>
+            <appender-ref ref="STDERR"/>
+            <appender-ref ref="FILE_INFO"/>
+            <appender-ref ref="STDINFO"/>
+        </logger>
         <root level="DEBUG">
             <appender-ref ref="STDOUT"/>
             <appender-ref ref="FILE"/>
