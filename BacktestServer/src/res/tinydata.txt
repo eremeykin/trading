@@ -1,0 +1,5 @@
+{"tick":{"instrument":"EUR_USD","time":"2014-12-16T08:23:21.858010Z","bid":1.24701,"ask":1.24714}}
+{"tick":{"instrument":"EUR_USD","time":"2014-12-16T08:23:24.560389Z","bid":1.24697,"ask":1.24711}}
+{"tick":{"instrument":"EUR_USD","time":"2014-12-16T08:23:25.023355Z","bid":1.24697,"ask":1.24712}}
+{"tick":{"instrument":"EUR_USD","time":"2014-12-16T08:23:25.223155Z","bid":1.24698,"ask":1.24712}}
+{"tick":{"instrument":"EUR_USD","time":"2014-12-16T08:23:25.866077Z","bid":1.24699,"ask":1.24712}}
