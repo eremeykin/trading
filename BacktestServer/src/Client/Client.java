@@ -20,13 +20,7 @@ import org.apache.log4j.Logger;
 public class Client {
 
     private static final String CRLF = "\r\n";
-    private final String header = "HTTP/1.1 200 OK" + CRLF
-            + "Server: TestServer/2014" + CRLF
-            + "Content-Type: application/json" + CRLF
-            + "Transfer-Encoding: chunked" + CRLF
-            + "Connection: close" + CRLF
-            + "Clien-Identificator: " + this.getId() + CRLF
-            + "Access-Control-Allow-Origin: *\n" + CRLF;
+    private final String header;
 
     public static final org.apache.log4j.Logger LOG = LogManager.getLogger(ClientProcessor.class);
     private final int id;
@@ -39,6 +33,15 @@ public class Client {
         this.conn = new Connection(s);
         this.id = id;
         this.iterator = new DataLoader().iterator();
+        header = "HTTP/1.1 200 OK" + CRLF
+                + "Server: TestServer/2014" + CRLF
+                + "Content-Type: application/json" + CRLF
+                + "Transfer-Encoding: chunked" + CRLF
+                + "Connection: close" + CRLF
+                + "Clien-Identificator: " + this.getId() + CRLF
+                + "Access-Control-Allow-Origin: *\n" + CRLF
+                + "2" + CRLF
+                + CRLF + CRLF;
         OutputStream os = this.conn.getOutputStream();
         os.write(header.getBytes());
         os.flush();
@@ -53,10 +56,12 @@ public class Client {
     }
 
     public synchronized void setNeedNext() {
+        LOG.info("Установлен needNext для" + this);
         this.needNext = true;
     }
 
     public synchronized void clearNeedNext() {
+        LOG.info("Снят needNext для " + this);
         this.needNext = false;
     }
 
@@ -69,8 +74,8 @@ public class Client {
         this.clearNeedNext();
         if (iterator.hasNext()) {
             String line = iterator.next();
-            String count = Integer.toHexString(line.length() + 1) + "\r\n\n";
-            line += "\r\n";
+            String count = Integer.toHexString(line.length() + 2) + "\r\n";
+            line += CRLF+"\n";
             os.write((count + line).getBytes());
             os.flush();
             //LOG.info(line);

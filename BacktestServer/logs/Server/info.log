@@ -1,13 +1,85 @@
-2014-12-31T23:14:18,863 [INFO ] - Сервер запущен. 
-2014-12-31T23:14:21,343 [INFO ] - Клиент принят 
-2014-12-31T23:14:21,345 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=51240,localport=8080] 
-2014-12-31T23:14:21,351 [INFO ] - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен. 
-2014-12-31T23:14:21,356 [INFO ] - Запущен TickFeeder для клиента Client #0 
-2014-12-31T23:14:24,095 [INFO ] - Клиент принят 
-2014-12-31T23:14:24,096 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=51241,localport=8080] 
-2014-12-31T23:14:24,098 [INFO ] - Поток ClientProcessor завершил обработу клиента 
-2014-12-31T23:14:24,166 [INFO ] - instrument:EUR_USD
+2015-01-01T13:36:37,703 [INFO ] - Сервер запущен. 
+2015-01-01T13:36:42,485 [INFO ] - Клиент принят 
+2015-01-01T13:36:42,488 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=47012,localport=8080] 
+2015-01-01T13:36:42,492 [INFO ] - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен. 
+2015-01-01T13:36:42,496 [INFO ] - Запущен TickFeeder для клиента Client #0 
+2015-01-01T13:36:45,309 [INFO ] - Клиент принят 
+2015-01-01T13:36:45,310 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=47013,localport=8080] 
+2015-01-01T13:36:45,312 [INFO ] - Установлен needNext дляClient #0 
+2015-01-01T13:36:45,312 [INFO ] - Снят needNext для Client #0 
+2015-01-01T13:36:45,313 [INFO ] - Поток ClientProcessor завершил обработу клиента 
+2015-01-01T13:36:45,394 [INFO ] - instrument:EUR_USD
 time:2014-12-16T08:23:21.858010
 ask:1.24714
 bid:1.24701
+ 
+2015-01-01T13:36:53,612 [INFO ] - Клиент принят 
+2015-01-01T13:36:53,612 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=47014,localport=8080] 
+2015-01-01T13:36:53,614 [INFO ] - Установлен needNext дляClient #0 
+2015-01-01T13:36:53,614 [INFO ] - Поток ClientProcessor завершил обработу клиента 
+2015-01-01T13:36:53,614 [INFO ] - Снят needNext для Client #0 
+2015-01-01T13:36:53,615 [INFO ] - instrument:EUR_USD
+time:2014-12-16T08:23:24.560389
+ask:1.24711
+bid:1.24697
+ 
+2015-01-01T13:36:54,077 [INFO ] - Клиент принят 
+2015-01-01T13:36:54,078 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=47015,localport=8080] 
+2015-01-01T13:36:54,080 [INFO ] - Установлен needNext дляClient #0 
+2015-01-01T13:36:54,080 [INFO ] - Снят needNext для Client #0 
+2015-01-01T13:36:54,081 [INFO ] - Поток ClientProcessor завершил обработу клиента 
+2015-01-01T13:36:54,081 [INFO ] - instrument:EUR_USD
+time:2014-12-16T08:23:25.023355
+ask:1.24712
+bid:1.24697
+ 
+2015-01-01T13:36:54,589 [INFO ] - Клиент принят 
+2015-01-01T13:36:54,590 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=47016,localport=8080] 
+2015-01-01T13:36:54,591 [INFO ] - Установлен needNext дляClient #0 
+2015-01-01T13:36:54,592 [INFO ] - Снят needNext для Client #0 
+2015-01-01T13:36:54,592 [INFO ] - instrument:EUR_USD
+time:2014-12-16T08:23:25.223155
+ask:1.24712
+bid:1.24698
+ 
+2015-01-01T13:36:54,593 [INFO ] - Поток ClientProcessor завершил обработу клиента 
+2015-01-01T13:36:55,045 [INFO ] - Клиент принят 
+2015-01-01T13:36:55,045 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=47017,localport=8080] 
+2015-01-01T13:36:55,047 [INFO ] - Установлен needNext дляClient #0 
+2015-01-01T13:36:55,047 [INFO ] - Поток ClientProcessor завершил обработу клиента 
+2015-01-01T13:36:55,047 [INFO ] - Снят needNext для Client #0 
+2015-01-01T13:36:55,048 [INFO ] - instrument:EUR_USD
+time:2014-12-16T08:23:25.866077
+ask:1.24712
+bid:1.24699
+ 
+2015-01-01T13:36:55,621 [INFO ] - Клиент принят 
+2015-01-01T13:36:55,622 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=47018,localport=8080] 
+2015-01-01T13:36:55,623 [INFO ] - Установлен needNext дляClient #0 
+2015-01-01T13:36:55,624 [INFO ] - Снят needNext для Client #0 
+2015-01-01T13:36:55,624 [INFO ] - instrument:EUR_USD
+time:2014-12-16T08:23:27.213385
+ask:1.24709
+bid:1.24695
+ 
+2015-01-01T13:36:55,630 [INFO ] - Поток ClientProcessor завершил обработу клиента 
+2015-01-01T13:36:56,165 [INFO ] - Клиент принят 
+2015-01-01T13:36:56,166 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=47019,localport=8080] 
+2015-01-01T13:36:56,168 [INFO ] - Установлен needNext дляClient #0 
+2015-01-01T13:36:56,169 [INFO ] - Снят needNext для Client #0 
+2015-01-01T13:36:56,170 [INFO ] - instrument:EUR_USD
+time:2014-12-16T08:23:27.712160
+ask:1.24706
+bid:1.24692
+ 
+2015-01-01T13:36:56,170 [INFO ] - Поток ClientProcessor завершил обработу клиента 
+2015-01-01T13:36:56,636 [INFO ] - Клиент принят 
+2015-01-01T13:36:56,636 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=47020,localport=8080] 
+2015-01-01T13:36:56,638 [INFO ] - Установлен needNext дляClient #0 
+2015-01-01T13:36:56,639 [INFO ] - Поток ClientProcessor завершил обработу клиента 
+2015-01-01T13:36:56,639 [INFO ] - Снят needNext для Client #0 
+2015-01-01T13:36:56,639 [INFO ] - instrument:EUR_USD
+time:2014-12-16T08:23:28.315540
+ask:1.24706
+bid:1.24693
  
