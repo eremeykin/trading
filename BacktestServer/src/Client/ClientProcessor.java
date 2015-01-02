@@ -48,6 +48,8 @@ public class ClientProcessor extends Thread {
                     }
                     break;
                 case MAKE_ORDER:
+                    Client client = HttpServer.getClientPool().getClientById(request.parseId());
+                    client.addOrder(request);
                     break;
             }
         } catch (IOException e) {
@@ -78,7 +80,6 @@ public class ClientProcessor extends Thread {
             //String body = "";
             while (result.bodyLength() < length) {
                 char c = scanner.next().charAt(0); //br.read(); //scanner.nextByte();
-                System.err.println(c);
                 body += c;
                 result.addBody(body);
                 if (c == -1) {
@@ -89,11 +90,9 @@ public class ClientProcessor extends Thread {
             String head = "HTTP/1.1 200 OK" + CRLF
                     + "Server: TestServer/2014" + CRLF
                     + "Content-Type: application/json" + CRLF
-                    //                    + "Transfer-Encoding: chunked" + CRLF
                     + "Connection: close" + CRLF
                     + "Clien-Identificator: " + this.getId() + CRLF
                     + "Access-Control-Allow-Origin: *\n" + CRLF
-                    //                    + "2" + CRLF
                     + CRLF + CRLF;
             OutputStream os = s.getOutputStream();
             os.write(head.getBytes());

@@ -5,6 +5,8 @@
  */
 package Client;
 
+import Order.BusinessRequest;
+import Order.Side;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import org.apache.log4j.LogManager;
@@ -24,7 +26,7 @@ public class HTTPRequest {
 
     public static final org.apache.log4j.Logger LOG = LogManager.getLogger(ClientProcessor.class);
     private String header;
-    private String body="";
+    private String body = "";
 
     public HTTPRequest(String header) {
         this.header = header;
@@ -93,6 +95,33 @@ public class HTTPRequest {
         }
         LOG.debug("getType return: " + Type.NEW_CLIENT.name());
         return Type.NEW_CLIENT;
+    }
+
+    public synchronized Order.BusinessRequest parseToBusinessRequest() {
+        Order.BusinessRequest result;
+        Scanner scanner = new Scanner(this.body);
+        scanner.useDelimiter("&");
+        float units = 0;
+        float stopLoss = 0;
+        float takeProfit = 0;
+        Order.Side side = Side.SELL;
+        while (scanner.hasNext()) {
+            String token = scanner.next();
+            if (token.startsWith("stopLoss")) {
+                stopLoss = Float.parseFloat(token.split("=")[1]);
+            }
+            if (token.startsWith("takeProfit")) {
+                takeProfit = Float.parseFloat(token.split("=")[1]);
+            }
+            if (token.startsWith("units")) {
+                units = Float.parseFloat(token.split("=")[1]);
+            }
+            if (token.startsWith("side")) {
+                side = Order.Side.valueOf(token.split("=")[1].toUpperCase());
+            }
+        }
+        result = new BusinessRequest(units, side, takeProfit, stopLoss);
+        return result;
     }
 
 }

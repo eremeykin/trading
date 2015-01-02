@@ -12,17 +12,30 @@ package Order;
 public class Order {
 
     private boolean isOpened;
-    private Request request;
+    private BusinessRequest request;
     private final DataItem openingItem;
-    private DataItem closingItem;
+    private DataItem closingItem = null;
 
-    public Order(DataItem openingItem) {
-        isOpened = true;
+    public Order(DataItem openingItem, BusinessRequest request) {
+        this.isOpened = true;
         this.openingItem = openingItem;
+        this.request = request;
     }
 
     public void close(DataItem closingItem) {
         this.isOpened = false;
         this.closingItem = closingItem;
     }
+
+    
+    public boolean isOpened() {
+        return this.isOpened;
+    }
+    
+    public DataItem getOpeningDataItem(){
+        return openingItem;
+    }
+     public BusinessRequest getBusinessRequest(){
+         return  request;
+     }
 }

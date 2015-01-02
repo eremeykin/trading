@@ -63,6 +63,7 @@ class ServerConnection(threading.Thread):
             headers = {'Authorization' : 'Bearer ' + self.token,
                     'X-Accept-Datetime-Format' : 'unix',
                     'Connection':'close',
+                    'Client-Identificator':'0',
                     "Content-Type" : "application/x-www-form-urlencoded"
                     }
 

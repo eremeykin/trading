@@ -12,6 +12,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.*;
 import Order.Order;
+import Order.Side;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -28,7 +29,8 @@ public class Client {
     private final int id;
     private final Iterator<String> iterator;
     private boolean needNext;
-    private List<Order[]> report = new ArrayList<>();
+    private List<Order> currentOrders = new ArrayList<>();
+    private List<List<Order>> report = new ArrayList<>();
     private DataItem nextDataItem;
 
     public Client(int id, Socket s) throws IOException {
@@ -76,7 +78,33 @@ public class Client {
         return iterator.hasNext();
     }
 
+    private void scanOrders() {
+        for (Order order : currentOrders) {
+            if (order.isOpened()) {
+                if (order.getBusinessRequest().getSide() == Side.BUY) {
+                    if (order.getBusinessRequest().getStopLoss() <= nextDataItem.bid) {
+                        order.close(nextDataItem);
+                    }
+                    if (order.getBusinessRequest().getTakeProfit() >= nextDataItem.bid) {
+                        order.close(nextDataItem);
+                    }
+                }
+                if (order.getBusinessRequest().getSide() == Side.SELL) {
+                    if (order.getBusinessRequest().getStopLoss() <= nextDataItem.ask) {
+                        order.close(nextDataItem);
+                    }
+                    if (order.getBusinessRequest().getTakeProfit() >= nextDataItem.ask) {
+                        order.close(nextDataItem);
+                    }
+                }
+
+            }
+        }
+    }
+
     public synchronized void sendNext() throws IOException {
+        this.scanOrders();
+        report.add(currentOrders);
         if (!this.needNext) {
             LOG.fatal("Вызван метод sendNext() для клиента, которой не готов принять данные.");
             throw new Error("Вызван метод sendNext() для клиента, которой не готов принять данные.");
@@ -95,6 +123,11 @@ public class Client {
             os.write("0\r\n\r\n".getBytes());
             os.flush();
         }
+    }
+
+    public synchronized void addOrder(HTTPRequest orderRequest) {
+        Order newOrder = new Order(nextDataItem, orderRequest.parseToBusinessRequest());
+        this.currentOrders.add(newOrder);
     }
 
 }
