@@ -90,7 +90,7 @@ public class Client {
             line += CRLF + "\n";
             os.write((count + line).getBytes());
             os.flush();
-            LOG.info(nextDataItem);
+            //LOG.info(nextDataItem);
         } else {
             os.write("0\r\n\r\n".getBytes());
             os.flush();

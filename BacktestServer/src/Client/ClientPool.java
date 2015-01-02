@@ -5,7 +5,6 @@
  */
 package Client;
 
-
 import java.io.IOException;
 import java.net.Socket;
 import java.util.HashMap;
@@ -18,19 +17,19 @@ import java.util.Map;
 public class ClientPool {
 
     private Map<Integer, Client> clients = new HashMap<>();
-    private int id=0;
-    
+    private int id = 0;
+
     public synchronized Client generateClient(Socket s) throws IOException {
-        int id =this.id++;
-        Client client = new Client(id,s);
+        int id = this.id++;
+        Client client = new Client(id, s);
         clients.put(client.getId(), client);
         return client;
     }
 
-    public  synchronized Client getClientById(int id){
+    public synchronized Client getClientById(int id) {
         return clients.get(id);
     }
-    
+
     public synchronized void remove(Client client) {
         clients.remove(client.getId());
     }

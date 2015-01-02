@@ -49,8 +49,8 @@ public class HTTPRequest {
         return body;
     }
 
-    public static int parseLength(String header) {
-        Scanner scanner = new Scanner(header);
+    public int parseLength() {
+        Scanner scanner = new Scanner(this.header);
         String line;
         while (scanner.hasNextLine()) {
             line = scanner.nextLine();
@@ -83,7 +83,7 @@ public class HTTPRequest {
             LOG.debug(Type.NEED_NEXT_TICK.name());
             return Type.NEED_NEXT_TICK;
         }
-        if (body.contains("Length")) {
+        if (this.header.contains("Content-Length:")) {
             LOG.debug(Type.MAKE_ORDER.name());
             return Type.MAKE_ORDER;
         }
