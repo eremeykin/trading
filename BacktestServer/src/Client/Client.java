@@ -11,8 +11,8 @@ import DataLoader.DataLoader;
 import java.io.*;
 import java.net.Socket;
 import java.util.*;
-import Order.Order;
-import Order.Side;
+import Order.*;
+import java.sql.SQLException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -30,12 +30,13 @@ public class Client {
     private final Iterator<String> iterator;
     private boolean needNext;
     private List<Order> currentOrders = new ArrayList<>();
-    private List<List<Order>> report = new ArrayList<>();
+    private Report<List<Order>> report;
     private DataItem nextDataItem;
 
-    public Client(int id, Socket s) throws IOException {
+    public Client(int id, Socket s) throws IOException, ClassNotFoundException, SQLException {
         this.conn = new Connection(s);
         this.id = id;
+        this.report = new Report<>(id);
         this.iterator = new DataLoader().iterator();
         header = "HTTP/1.1 200 OK" + CRLF
                 + "Server: TestServer/2014" + CRLF

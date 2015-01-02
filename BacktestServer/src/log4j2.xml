@@ -6,7 +6,7 @@
     <appenders>
         <!-- За перезапись отвечает параметр append-->
         <RollingFile name="FILE_ERROR" fileName="logs/Server/error.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz" append="false"> 
-<!--            <PatternLayout pattern="%d{ISO8601} [%-5p] - %m - %n    (%t>%F:%L) %n"/>-->
+            <!--            <PatternLayout pattern="%d{ISO8601} [%-5p] - %m - %n    (%t>%F:%L) %n"/>-->
             <PatternLayout pattern="%d{ISO8601} [%-5p] - %m %n"/>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -66,6 +66,12 @@
             <appender-ref ref="STDINFO"/>
         </logger>
         <logger name="Client.HTTPRequest" level="debug" additivity="false">
+            <appender-ref ref="FILE_ERROR"/>
+            <appender-ref ref="STDERR"/>
+            <appender-ref ref="FILE_INFO"/>
+            <appender-ref ref="STDINFO"/>
+        </logger>
+        <logger name="Order.Report" level="debug" additivity="false">
             <appender-ref ref="FILE_ERROR"/>
             <appender-ref ref="STDERR"/>
             <appender-ref ref="FILE_INFO"/>

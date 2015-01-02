@@ -13,7 +13,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import org.apache.log4j.LogManager;
 
@@ -54,6 +57,12 @@ public class ClientProcessor extends Thread {
             }
         } catch (IOException e) {
             LOG.error("Ошибка записи при отправке ответа. " + e);
+        } catch (ClassNotFoundException ex) {
+            LOG.fatal("Не найден класс для соединения с БД." + ex);
+            System.exit(-1);
+        } catch (SQLException ex) {
+            LOG.fatal("Ошибка при выполнении SLQ запроса." + ex);
+            System.exit(-1);
         } finally {
             try {
                 s.close();
@@ -71,7 +80,7 @@ public class ClientProcessor extends Thread {
         Scanner scanner = new Scanner(br);
         scanner.useDelimiter("\r\n\r\n");
         HTTPRequest result = new HTTPRequest(scanner.next());
-        LOG.debug(result);
+//        LOG.debug(result);
         scanner.useDelimiter("");
         String body = "";
         boolean hasBody = result.getType() == Type.MAKE_ORDER;
@@ -107,7 +116,7 @@ public class ClientProcessor extends Thread {
         private final Client client;
         private boolean stop = false;
 
-        public TickFeeder(Socket s) throws IOException {
+        public TickFeeder(Socket s) throws IOException, SQLException, ClassNotFoundException {
             this.client = HttpServer.getClientPool().generateClient(s);
         }
 

@@ -27,15 +27,19 @@ public class Order {
         this.closingItem = closingItem;
     }
 
-    
     public boolean isOpened() {
         return this.isOpened;
     }
-    
-    public DataItem getOpeningDataItem(){
+
+    public DataItem getOpeningDataItem() {
         return openingItem;
     }
-     public BusinessRequest getBusinessRequest(){
-         return  request;
-     }
+
+    public DataItem getClosingDataItem() {
+        return closingItem;
+    }
+
+    public BusinessRequest getBusinessRequest() {
+        return request;
+    }
 }
