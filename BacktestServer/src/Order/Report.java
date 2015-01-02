@@ -49,16 +49,19 @@ public class Report<T extends List<Order>> {
             try {
                 Statement st = connection.createStatement();
 
-                PreparedStatement ps = connection.prepareStatement("INSERT INTO \"main\".\"client"+clientId+"\" (\"num\",\"is_open\",\"instr\",\"opening_ask\",\"opening_bid\",\"opening_time\",\"closing_ask\",\"closing_bid\",\"closing_time\") VALUES (?,?,?,?,?,?,?,?,?)");
+                PreparedStatement ps = connection.prepareStatement("INSERT INTO \"main\".\"client" + clientId + "\" (\"num\",\"is_open\",\"instr\",\"opening_ask\",\"opening_bid\",\"opening_time\",\"closing_ask\",\"closing_bid\",\"closing_time\") VALUES (?,?,?,?,?,?,?,?,?)");
                 ps.setString(1, new Integer(num).toString());
                 ps.setString(2, new Boolean(order.isOpened()).toString());
                 ps.setString(3, order.getOpeningDataItem().instr.name());
                 ps.setString(4, new Double(order.getOpeningDataItem().ask).toString());
                 ps.setString(5, new Double(order.getOpeningDataItem().bid).toString());
                 ps.setString(6, order.getOpeningDataItem().dateTime.toString());
-                ps.setString(7, new Double(order.getClosingDataItem().ask).toString());
-                ps.setString(8, new Double(order.getClosingDataItem().bid).toString());
-                ps.setString(9, order.getClosingDataItem().dateTime.toString());
+                String closingAsk = order.getClosingDataItem() == null ? "null" : (new Double(order.getClosingDataItem().ask).toString());
+                ps.setString(7, closingAsk);
+                String closingBid = order.getClosingDataItem() == null ? "null" : (new Double(order.getClosingDataItem().bid).toString());
+                ps.setString(8, closingBid);
+                String closingTime = order.getClosingDataItem() == null ? "null" : (order.getClosingDataItem().dateTime.toString());
+                ps.setString(9, closingTime);
                 ps.executeUpdate();
 //
 //                st.executeQuery("INSERT INTO \"main\".\"client0\" "

@@ -63,7 +63,7 @@ class ServerConnection(threading.Thread):
             headers = {'Authorization' : 'Bearer ' + self.token,
                     'X-Accept-Datetime-Format' : 'unix',
                     'Connection':'close',
-                    'Client-Identificator':'1',
+                    'Client-Identificator':'0',
                     "Content-Type" : "application/x-www-form-urlencoded"
                     }
 
@@ -111,5 +111,5 @@ class ServerConnection(threading.Thread):
 
 if __name__ == "__main__":
     sc = ServerConnection(test_mode = True)
-    sc.order(instr = sc.instrument,units=10,side='buy',take_profit='1000',stop_loss='0')
+    sc.order(instr = sc.instrument,units=10,side='buy',take_profit='1000',stop_loss='1.24680')
     # sc.start()

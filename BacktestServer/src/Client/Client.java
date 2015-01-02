@@ -83,10 +83,10 @@ public class Client {
         for (Order order : currentOrders) {
             if (order.isOpened()) {
                 if (order.getBusinessRequest().getSide() == Side.BUY) {
-                    if (order.getBusinessRequest().getStopLoss() <= nextDataItem.bid) {
+                    if (order.getBusinessRequest().getStopLoss() >= nextDataItem.bid) {
                         order.close(nextDataItem);
                     }
-                    if (order.getBusinessRequest().getTakeProfit() >= nextDataItem.bid) {
+                    if (order.getBusinessRequest().getTakeProfit() <= nextDataItem.bid) {
                         order.close(nextDataItem);
                     }
                 }
