@@ -24,32 +24,36 @@ public class HTTPRequest {
 
     public static final org.apache.log4j.Logger LOG = LogManager.getLogger(ClientProcessor.class);
     private String header;
-    private String body;
+    private String body="";
 
     public HTTPRequest(String header) {
         this.header = header;
 //        this.body = body;
     }
 
-    public void addBody(String body) {
-        this.body = body;
+    public synchronized void addBody(String body) {
+        this.body = body.trim();
+    }
+
+    public synchronized int bodyLength() {
+        return body.trim().length();
     }
 
     /**
      * @return the header
      */
-    public String getHeader() {
+    public synchronized String getHeader() {
         return header;
     }
 
     /**
      * @return the body
      */
-    public String getBody() {
+    public synchronized String getBody() {
         return body;
     }
 
-    public int parseLength() {
+    public synchronized int parseLength() {
         Scanner scanner = new Scanner(this.header);
         String line;
         while (scanner.hasNextLine()) {
@@ -62,7 +66,7 @@ public class HTTPRequest {
         return 0;
     }
 
-    public int parseId() {
+    public synchronized int parseId() {
         StringTokenizer tokenizer = new StringTokenizer(this.header, "\r\n");
         while (tokenizer.hasMoreTokens()) {
             String token = tokenizer.nextToken();
@@ -74,20 +78,20 @@ public class HTTPRequest {
     }
 
     @Override
-    public String toString() {
+    public synchronized String toString() {
         return "header:\n" + header + "\n" + "body:\n" + body;
     }
 
-    public Type getType() {
+    public synchronized Type getType() {
         if (this.header.contains("need_next_tick")) {
-            LOG.debug(Type.NEED_NEXT_TICK.name());
+            LOG.debug("getType return: " + Type.NEED_NEXT_TICK.name());
             return Type.NEED_NEXT_TICK;
         }
-        if (this.header.contains("Content-Length:")) {
-            LOG.debug(Type.MAKE_ORDER.name());
+        if (this.header.contains("Content-Length:") && this.parseLength() != 0) {
+            LOG.debug("getType return: " + Type.MAKE_ORDER.name());
             return Type.MAKE_ORDER;
         }
-        LOG.debug(Type.NEW_CLIENT.name());
+        LOG.debug("getType return: " + Type.NEW_CLIENT.name());
         return Type.NEW_CLIENT;
     }
 

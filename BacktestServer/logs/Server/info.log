@@ -1,19 +1,4 @@
-2015-01-02T13:03:39,046 [INFO ] - Сервер запущен. 
-2015-01-02T13:03:46,389 [INFO ] - Клиент принят 
-2015-01-02T13:03:46,392 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=43979,localport=8080] 
-2015-01-02T13:03:46,401 [INFO ] - Файл /home/eremeykin/Trading/BacktestServer/build/classes/res/smalldata.txt загружен. 
-2015-01-02T13:03:46,475 [INFO ] - Запущен TickFeeder для клиента Client #0 
-2015-01-02T13:03:49,536 [INFO ] - Клиент принят 
-2015-01-02T13:03:49,536 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=43981,localport=8080] 
-2015-01-02T13:03:49,539 [INFO ] - Поток ClientProcessor завершил обработу клиента 
-2015-01-02T13:03:53,030 [INFO ] - Клиент принят 
-2015-01-02T13:03:53,030 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=43982,localport=8080] 
-2015-01-02T13:03:53,035 [INFO ] - Поток ClientProcessor завершил обработу клиента 
-2015-01-02T13:03:57,086 [INFO ] - Клиент принят 
-2015-01-02T13:03:57,087 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=43984,localport=8080] 
-2015-01-02T13:03:57,091 [INFO ] - Поток ClientProcessor завершил обработу клиента 
-2015-01-02T13:03:58,862 [INFO ] - Клиент принят 
-2015-01-02T13:03:58,863 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=43985,localport=8080] 
-2015-01-02T13:03:58,866 [INFO ] - Поток ClientProcessor завершил обработу клиента 
-2015-01-02T13:04:09,269 [INFO ] - Клиент принят 
-2015-01-02T13:04:09,269 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=43989,localport=8080] 
+2015-01-02T14:05:43,657 [INFO ] - Сервер запущен. 
+2015-01-02T14:05:48,666 [INFO ] - Клиент принят 
+2015-01-02T14:05:48,668 [INFO ] - Создан ClientProcessor для сокета Socket[addr=/127.0.0.1,port=44876,localport=8080] 
+2015-01-02T14:05:48,686 [INFO ] - Поток ClientProcessor завершил обработу клиента 
