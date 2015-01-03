@@ -115,8 +115,8 @@ public class Client {
         if (hasMoreData()) {
             String line = nextDataItem.getPrototype();
             nextDataItem = new DataItem(iterator.next());
-            String count = Integer.toHexString(line.length() + 2) + "\r\n";
-            line += CRLF + "\n";
+            String count = Integer.toHexString(line.length() + 1) + "\r\n";
+            line += "\n"+CRLF;
             os.write((count + line).getBytes());
             os.flush();
             //LOG.info(nextDataItem);

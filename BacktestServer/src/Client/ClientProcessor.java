@@ -47,12 +47,16 @@ public class ClientProcessor extends Thread {
                     try {
                         HttpServer.getClientPool().getClientById(request.parseId()).setNeedNext();
                     } catch (NullPointerException ex) {
-                        LOG.error("Запрошены данные для несуществующего клиента" + ex);
+                        LOG.error("Запрошены данные для несуществующего клиента. Клиент №" + request.parseId() + " " + ex);
                     }
                     break;
                 case MAKE_ORDER:
-                    Client client = HttpServer.getClientPool().getClientById(request.parseId());
-                    client.addOrder(request);
+                    try {
+                        Client client = HttpServer.getClientPool().getClientById(request.parseId());
+                        client.addOrder(request);
+                    } catch (NullPointerException ex) {
+                        LOG.error("Запрошены данные для несуществующего клиента. Клиент №" + request.parseId() + " " + ex);
+                    }
                     break;
             }
         } catch (IOException e) {
@@ -83,7 +87,7 @@ public class ClientProcessor extends Thread {
 //        LOG.debug(result);
         scanner.useDelimiter("");
         String body = "";
-        boolean hasBody = result.getType() == Type.MAKE_ORDER;
+        boolean hasBody = result.getType() == Type.WITH_BODY;
         int length = result.parseLength();
         if (hasBody) {
             //String body = "";
@@ -95,19 +99,23 @@ public class ClientProcessor extends Thread {
                     break;
                 }
             }
+
+        }
+        if (result.getType() != Type.NEW_CLIENT) {
             String CRLF = "\r\n";
             String head = "HTTP/1.1 200 OK" + CRLF
                     + "Server: TestServer/2014" + CRLF
                     + "Content-Type: application/json" + CRLF
                     + "Connection: close" + CRLF
+                    + "Content-Length: 0" + CRLF
                     + "Clien-Identificator: " + this.getId() + CRLF
                     + "Access-Control-Allow-Origin: *\n" + CRLF
                     + CRLF + CRLF;
             OutputStream os = s.getOutputStream();
-            os.write(head.getBytes());
             os.flush();
+            os.write(head.getBytes());
         }
-        LOG.debug(result);
+        LOG.debug("Принято сообщение типа " + result.getType().name() + ":\n" + result);
         return result;
     }
 
@@ -133,6 +141,7 @@ public class ClientProcessor extends Thread {
                 do {
                     if (client.needNext()) {
                         client.sendNext();
+                        LOG.info("Отправлен тик для клиента " + client);
                     }
                 } while (client.hasMoreData());
                 LOG.info("Завершен TickFeeder для клиента. " + client);
@@ -157,12 +166,12 @@ public class ClientProcessor extends Thread {
             @Override
             public void run() {
                 boolean go = true;
-                while (go) {
-                    try {
+                try {
+                    while (go) {
                         go = is.read() != -1;
-                    } catch (IOException ex) {
-                        LOG.error("Ошибка при сканировании статуса соединения во внутреннем потоке.");
                     }
+                } catch (IOException ex) {
+                    LOG.error("Ошибка при сканировании статуса соединения во внутреннем потоке.");
                 }
                 feeder.setStop();
             }

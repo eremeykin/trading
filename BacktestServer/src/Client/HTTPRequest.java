@@ -20,8 +20,9 @@ public class HTTPRequest {
     public enum Type {
 
         NEED_NEXT_TICK,
-        MAKE_ORDER,
-        NEW_CLIENT
+        WITH_BODY,
+        NEW_CLIENT,
+        MAKE_ORDER
     }
 
     public static final org.apache.log4j.Logger LOG = LogManager.getLogger(ClientProcessor.class);
@@ -64,7 +65,7 @@ public class HTTPRequest {
                 return Integer.parseInt(line.substring("Content-Length: ".length()));
             }
         }
-        LOG.info("Принято сообщение без информации о длине.");
+        LOG.error("Принято сообщение без информации о длине.");
         return 0;
     }
 
@@ -86,14 +87,14 @@ public class HTTPRequest {
 
     public synchronized Type getType() {
         if (this.header.contains("need_next_tick")) {
-            LOG.debug("getType return: " + Type.NEED_NEXT_TICK.name());
             return Type.NEED_NEXT_TICK;
         }
-        if (this.header.contains("Content-Length:") && this.parseLength() != 0) {
-            LOG.debug("getType return: " + Type.MAKE_ORDER.name());
+        if (this.body != null && this.body.contains("instrument")) {
             return Type.MAKE_ORDER;
         }
-        LOG.debug("getType return: " + Type.NEW_CLIENT.name());
+        if (this.header.contains("Content-Length:") && this.parseLength() != 0) {
+            return Type.WITH_BODY;
+        }
         return Type.NEW_CLIENT;
     }
 

@@ -52,7 +52,11 @@ public class DataLoader implements Iterable<String> {
 
             @Override
             public boolean hasNext() {
-                return scanner.hasNextLine();
+                boolean result = scanner.hasNextLine();
+                if (!result){
+                    LOG.error("Нет больше данных");
+                }
+                return result;
             }
 
             @Override
