@@ -79,23 +79,34 @@ public class Client {
         return iterator.hasNext();
     }
 
-    private void scanOrders() {
-        for (Order order : currentOrders) {
+    private synchronized void scanOrders() {
+        //for (Order order : currentOrders) {
+        Iterator<Order> it = currentOrders.iterator();
+        while (it.hasNext()) {
+            Order order = it.next();
             if (order.isOpened()) {
                 if (order.getBusinessRequest().getSide() == Side.BUY) {
                     if (order.getBusinessRequest().getStopLoss() >= nextDataItem.bid) {
                         order.close(nextDataItem);
+                        report.add(order);
+                        it.remove();
                     }
                     if (order.getBusinessRequest().getTakeProfit() <= nextDataItem.bid) {
                         order.close(nextDataItem);
+                        report.add(order);
+                        it.remove();
                     }
                 }
                 if (order.getBusinessRequest().getSide() == Side.SELL) {
                     if (order.getBusinessRequest().getStopLoss() <= nextDataItem.ask) {
                         order.close(nextDataItem);
+                        report.add(order);
+                        it.remove();
                     }
                     if (order.getBusinessRequest().getTakeProfit() >= nextDataItem.ask) {
                         order.close(nextDataItem);
+                        report.add(order);
+                        it.remove();
                     }
                 }
 
@@ -105,7 +116,6 @@ public class Client {
 
     public synchronized void sendNext() throws IOException {
         this.scanOrders();
-        report.add(currentOrders);
         if (!this.needNext) {
             LOG.fatal("Вызван метод sendNext() для клиента, которой не готов принять данные.");
             throw new Error("Вызван метод sendNext() для клиента, которой не готов принять данные.");
@@ -116,7 +126,7 @@ public class Client {
             String line = nextDataItem.getPrototype();
             nextDataItem = new DataItem(iterator.next());
             String count = Integer.toHexString(line.length() + 1) + "\r\n";
-            line += "\n"+CRLF;
+            line += "\n" + CRLF;
             os.write((count + line).getBytes());
             os.flush();
             //LOG.info(nextDataItem);
@@ -128,6 +138,7 @@ public class Client {
 
     public synchronized void addOrder(HTTPRequest orderRequest) {
         Order newOrder = new Order(nextDataItem, orderRequest.parseToBusinessRequest());
+        //report.add(newOrder);
         this.currentOrders.add(newOrder);
     }
 

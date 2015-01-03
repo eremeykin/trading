@@ -22,7 +22,7 @@ import org.apache.log4j.LogManager;
 public class DataLoader implements Iterable<String> {
 
     public static final org.apache.log4j.Logger LOG = LogManager.getLogger(DataLoader.class);
-    private final static String fileName = "/res/smalldata.txt";
+    private final static String fileName = "/res/test_data.txt";
     private final File dataFile;
     BufferedReader reader;
 

@@ -108,20 +108,24 @@ class ServerConnection(threading.Thread):
         try:
              self.get_next(0)
              for line in response.iter_lines(1):
-                self.get_next(0)
                 if line:
                     try:
                         msg = json.loads(line)
                     except Exception as e:
                         print "Caught exception when converting message into json. Exception message:\n" + str(e)
                         return
+                    if  '\"bid\":1.2472,' in line:
+                        print "O_R_D_E_R"
+                        self.order(instr=self.instrument, units=10, side='sell', take_profit=1.2470, stop_loss=1.2475)
                     if self.displayHeartbeat:
-                        print line
+                        # print line
                         pass
                     else:
                         if msg.has_key("instrument") or msg.has_key("tick"):
                             pass
                             print line
+                self.get_next(0)
+                
                             
         except Exception as e:
             print "Caught exception when reading response. Exception message:\n" + str(e)
