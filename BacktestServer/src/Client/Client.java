@@ -43,7 +43,7 @@ public class Client {
                 + "Content-Type: application/json" + CRLF
                 + "Transfer-Encoding: chunked" + CRLF
                 + "Connection: close" + CRLF
-                + "Clien-Identificator: " + this.getId() + CRLF
+                + "Client-Identificator: " + this.getId() + CRLF
                 + "Access-Control-Allow-Origin: *\n" + CRLF
                 + "2" + CRLF
                 + CRLF + CRLF;

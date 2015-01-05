@@ -108,7 +108,7 @@ public class ClientProcessor extends Thread {
                     + "Content-Type: application/json" + CRLF
                     + "Connection: close" + CRLF
                     + "Content-Length: 0" + CRLF
-                    + "Clien-Identificator: " + this.getId() + CRLF
+                    + "Client-Identificator: " + this.getId() + CRLF
                     + "Access-Control-Allow-Origin: *\n" + CRLF
                     + CRLF + CRLF;
             OutputStream os = s.getOutputStream();
@@ -144,6 +144,7 @@ public class ClientProcessor extends Thread {
                         LOG.info("Отправлен тик для клиента " + client);
                     }
                 } while (client.hasMoreData());
+                client.sendNext();
                 LOG.info("Завершен TickFeeder для клиента. " + client);
             } catch (IOException ex) {
                 LOG.error("Ошибка при записи запроса. " + ex);
