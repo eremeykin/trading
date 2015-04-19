@@ -20,6 +20,7 @@ public class HTTPRequest {
     public enum Type {
 
         NEED_NEXT_TICK,
+        NEED_CANDLES,
         WITH_BODY,
         NEW_CLIENT,
         MAKE_ORDER
@@ -65,7 +66,7 @@ public class HTTPRequest {
                 return Integer.parseInt(line.substring("Content-Length: ".length()));
             }
         }
-        LOG.error("Принято сообщение без информации о длине.");
+        LOG.info("Принято сообщение без информации о длине.");
         return 0;
     }
 
@@ -77,7 +78,7 @@ public class HTTPRequest {
                 return new Integer(token.substring("Client-Identificator: ".length()));
             }
         }
-        throw new Error();
+        throw new Error("Нет идентификатора клиента");
     }
 
     @Override
@@ -86,6 +87,9 @@ public class HTTPRequest {
     }
 
     public synchronized Type getType() {
+        if (this.header.contains("candles")){
+            return Type.NEED_CANDLES;
+        }
         if (this.header.contains("need_next_tick")) {
             return Type.NEED_NEXT_TICK;
         }

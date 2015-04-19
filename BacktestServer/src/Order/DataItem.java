@@ -32,6 +32,8 @@ public class DataItem {
         ask = (double) obj.getJSONObject("tick").get("ask");
         bid = (double) obj.getJSONObject("tick").get("bid");
         String timeString = obj.getJSONObject("tick").getString("time");
+        // length - 1 чтобы отрезать знак Z после строки времени.
+        // 2014-11-30T17:00:02.433000000Z
         timeString = timeString.substring(0, timeString.length() - 1);
         dateTime = LocalDateTime.parse(timeString, DateTimeFormatter.ISO_DATE_TIME);
     }
@@ -47,5 +49,10 @@ public class DataItem {
     public String getPrototype() {
         return prototype;
     }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+    
 
 }

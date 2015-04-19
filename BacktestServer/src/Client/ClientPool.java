@@ -20,9 +20,9 @@ public class ClientPool {
     private Map<Integer, Client> clients = new HashMap<>();
     private int id = 0;
 
-    public synchronized Client generateClient(Socket s) throws IOException, ClassNotFoundException, SQLException {
+    public synchronized Client generateClient(Socket s, HTTPRequest request) throws IOException, ClassNotFoundException, SQLException {
         int id = this.id++;
-        Client client = new Client(id, s);
+        Client client = new Client(id, s, request);
         clients.put(client.getId(), client);
         return client;
     }

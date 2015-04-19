@@ -10,8 +10,6 @@ import Client.ClientProcessor;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.log4j.LogManager;
 
 /**
@@ -33,7 +31,7 @@ public class HttpServer {
             ServerSocket ss = new ServerSocket(8080);
             while (true) {
                 Socket s = ss.accept();
-                LOG.info("Клиент принят");
+                LOG.info("Клиент принят на порт: "+ s.getPort());
                 s.setKeepAlive(true);
                 new ClientProcessor(s).start();
             }
